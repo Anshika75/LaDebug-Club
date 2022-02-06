@@ -1,0 +1,2906 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" integrity="sha512-iBBXm8fW90+nuLcSKlbmrPcLa0OT92xO1BIsZ+ywDWZCvqsWgccV3gFoRBv0z+8dLJgyAHIhR35VZc2oM/gI1w==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="C:\Users\anshi\OneDrive\Desktop\Ladebug\ladebug.css">
+    <title>Document</title>
+</head>
+<body>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Genos:wght@100;200;300;400;500;600;700;800;900&display=swap');
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    scroll-behavior: smooth;
+    -webkit-tap-highlight-color: transparent;
+}
+body{
+    font-family: 'Genos', sans-serif;
+}
+.flex-row{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+}
+.flex-column{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+.main{
+    height:100%;
+    width:100vw;
+    position:fixed;
+    overflow:hidden;
+    top: 0;
+    left: 0;
+    background-color:rgb(1, 0, 15);
+    z-index: 50;
+}
+.lbox{
+    height:300px;
+    width:300px;
+    padding:30px;
+    top:50%;
+    left:50%;
+    transform:translate(-50%,-50%) scale(0.3);
+    transform-style:preserve-3d;
+    position:absolute;
+    z-index:100;
+}
+.lbox .box{
+    height:250px;
+    width:250px;
+    background-color:transparent;
+    padding:30px;
+    top:50%;
+    left:50%;
+    transform:translate(-50%,-50%);
+    transform-style:preserve-3d;
+    position:absolute;
+}
+.lbox .box2{
+    transform:translate(-50%,-50%) rotate(30deg);
+}
+.lbox .box3{
+    transform:translate(-50%,-50%) rotate(-45deg);
+}
+.lbox .box4{
+    transform:translate(-50%,-50%) rotate(60deg);
+}
+.lbox .box5{
+    transform:translate(-50%,-50%) rotate(-75deg);
+}
+.lbox .box6{
+    transform:translate(-50%,-50%) rotate(105deg);
+}
+.lbox .box7{
+    transform:translate(-50%,-50%) rotate(-120deg);
+}
+.lbox .box8{
+    transform:translate(-50%,-50%) rotate(135deg);
+}
+.lbox .box9{
+    transform:translate(-50%,-50%) rotate(-150deg);
+}
+.lbox .box10{
+    transform:translate(-50%,-50%) rotate(165deg);
+}
+.lbox .b1{
+    height:100%;
+    width:100%;
+    border:2px solid transparent;
+    animation:r1 7s linear both infinite;
+    transform:perspective(1000px) translateZ(100%) rotate(-360deg);
+}
+@keyframes r1{
+    0%{
+        transform:perspective(1000px) rotateX(0deg) rotate(-360deg);
+    }
+    
+    100%{
+        transform:perspective(1000px) rotateX(360deg) rotate(360deg);
+    }
+}
+
+.lbox .b{
+    border-image:linear-gradient(45deg, #FD4766, #ff899c, #e04b64, #ff2347, #ffc3cd);
+    border-image-slice:1;
+}
+.main button{
+    color:#FD4766;
+    text-transform: uppercase;
+    font-weight: 500;
+    letter-spacing: 2.5px;
+    text-align: center;
+    padding: 10px;
+    border: 1px solid #FD4766;
+    background: transparent;
+    outline: none;
+    cursor: pointer;
+    transition: all 0.3s ease-in-out;
+    background: rgba(253, 71, 102,0.1);
+    position: absolute;
+    bottom: 20px;
+    right: 40px;
+}
+.main button:hover{
+    background: rgba(253, 71, 102,0.5);
+    color: #fddfe5;
+}
+.mainpage{
+    display: block;
+    background: #212428;
+}
+.sidenav{
+    box-shadow: 1px 4px 2px -3px rgba(0, 0, 0, 0.7) inset, -1px -3px 3px -2px rgba(255, 255, 255, 0.2) inset;
+    background-color: #1e2024;
+    display: flex;
+    flex-direction: column;
+    position: fixed;
+    top: 0;
+    right: 0;
+    padding-left: 20px;
+    padding-top: 45px;
+    padding-right: 75px;
+    padding-bottom: 25px;
+    opacity: 1;
+    z-index: 100;
+    transition: all 0.5s ease-in-out;
+    transform-origin: top;
+    transform: rotate(-60deg) translateX(150%);
+    overflow: hidden;
+}
+.sidenav:hover{
+    box-shadow: inset 21px 21px 19px #181a1d, inset -21px -21px 19px #202225;
+}
+.sidenav .closebtn{
+    position: absolute;
+    top: 15px;
+    right:10px;
+    padding: 0px;
+    cursor: pointer;
+    font-size: 1.4rem;   
+    transition: all 0.5s ease-in-out;
+    color: #919191;
+}
+.sidenav .closebtn:hover{
+    color: #FD4766;
+}
+.sidenav .navbox{
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: space-evenly;
+    transform: translateX(150%);
+    transition: all 0.5s ease-in-out;
+}
+.sidenav .navbox a{
+    text-decoration: none;
+    color: #919191;
+    margin: 5px 0;
+}
+.sidenav .navbox a p{
+    font-size:1.2rem;
+    cursor: pointer;
+    position: relative;
+    padding-bottom: 2.5px;
+    transition: all 0.5s ease-in-out;
+}
+.sidenav .navbox a p:hover{
+    color: #FD4766;
+    transform: scale(1.1);
+}
+.sidenav .navbox a p::after{
+    content: "";
+    position: absolute;
+    bottom: 0%;
+    left: 50%;
+    transform: translateX(-50%);
+    height: 1.5px;
+    width: 0%;
+    background-color: #FD4766;
+    transition: all 0.5s ease-in-out;
+    /* opacity: 0; */
+}
+.sidenav .navbox a:hover p::after{
+    opacity: 1;
+    width: 90%;
+}
+.hambox{
+    position: fixed;
+    top: 20px;
+    right: 15px;
+    padding: 15px;
+    z-index: 20;
+    font-size: 1rem;
+    font-weight: 900;
+    cursor: pointer;
+    border-radius: 5px;
+    overflow: hidden;
+    display: none;
+    transition: all 1s ease-in-out;
+    box-shadow: 1px 4px 2px -3px rgba(0, 0, 0, 0.7) inset, -1px -3px 3px -2px rgba(255, 255, 255, 0.2) inset;
+    background-color: linear-gradient(145deg, #1e2024, #23272b);
+}
+.hambox:hover{
+    box-shadow: inset 21px 21px 19px #181a1d, inset -21px -21px 19px #202225;
+    color: #FD4766;
+}
+.hambox:hover i{
+    color: #FD4766;
+}
+.hambox i{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+    color: #919191;
+    transition: all 1s ease-in-out;
+}
+.header{
+    /* background-color: red; */
+    padding: 7px 5px;
+    margin-top: 15px;
+    position: absolute;
+    top: 0;
+    left: 0;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+}
+.header_left{
+    justify-content: space-between;
+    width: 100%;
+}
+.header_left .logo{
+    height: 60px;
+    justify-content: space-between;
+    width: 100%;
+}
+.header_left .logo a{
+    text-decoration: none;
+    margin: 0 5px;
+}
+.header_left .logo a img{
+    height: 50px;
+    width: 50px;
+}
+.header_left .logo a:last-child img{
+    height: 50px;
+    width: 40px;
+}
+.header_right{
+    width: 90%;
+    display: none;
+    margin-left: 200px;
+}
+.header_right .tab{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-evenly;
+}
+.header_right .tab a{
+    text-decoration: none;
+    color: #919191;
+}
+.header_right .tab a p{
+    font-size:1.2rem;
+    cursor: pointer;
+    position: relative;
+    padding-bottom: 2.5px;
+    transition: all 0.5s ease-in-out;
+}
+.header_right .tab a p:hover{
+    color: #FD4766;
+    transform: scale(1.1);
+}
+.header_right .tab a p::after{
+    content: "";
+    position: absolute;
+    bottom: 0%;
+    left: 50%;
+    transform: translateX(-50%);
+    height: 1.5px;
+    width: 0%;
+    background-color: #FD4766;
+    transition: all 0.5s ease-in-out;
+    /* opacity: 0; */
+}
+.header_right .tab a:hover p::after{
+    opacity: 1;
+    width: 90%;
+}
+section.landing{
+    min-height: 100vh;
+    max-width: 100vw;
+    background-image:linear-gradient(0deg, rgb(1, 0, 1,0.8), rgb(1, 0, 1,0.8)), url(https://c.tenor.com/FP3KLUuiKOkAAAAC/computer-typing.gif);
+    background-size: 100% 100%;
+}
+.landing .txtbox{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    line-height: .5rem;
+    text-align: center;
+}
+.landing .txtbox .sub{
+    color: #fff;
+    font-weight: 300;
+    font-size: 1.5rem;
+    margin-bottom: 25px;
+}
+.landing .txtbox .head{
+    background: -webkit-linear-gradient(120deg, #C2435E 20.69%, #744D68 50.19%, #FD4766 79.69%);
+    -webkit-background-clip: text;  
+    -webkit-text-fill-color: transparent;
+    font-size: 2.5rem;
+    line-height: 2.5rem;
+    font-weight: 900;
+    padding-bottom: 2.5px;
+    position: relative;
+}
+.landing .txtbox .head::after{
+    content: "";
+    position: absolute;
+    bottom: 0%;
+    left: 50%;
+    margin-top: 10px;
+    transform: translateX(-50%);
+    height: 2.5px;
+    width: 90%;
+    background-color: #FD4766;
+}
+.landing .txtbox .title{
+    color: #fff;
+    margin-top: 2.5px;
+    line-height: normal;
+    font-size: 1.2rem;
+    background: -webkit-linear-gradient(120deg, #fddfe5 20.69%, #fda0af 50.19%, #fddbe1 79.69%);
+    -webkit-background-clip: text;  
+    -webkit-text-fill-color: transparent;
+}
+section.intro{
+    background-color: #212428;
+    display: flex;
+    flex-direction: column-reverse;
+    align-items: center;
+    padding: 0 25px;
+    padding-top: 150px;
+}
+section.intro .txtbox .sub{
+    font-weight: 500;
+    font-size: 1.2rem;
+    margin-bottom: 25px;
+    background: -webkit-linear-gradient(120deg, #C2435E 20.69%, #744D68 50.19%, #FD4766 79.69%);
+    -webkit-background-clip: text;  
+    -webkit-text-fill-color: transparent;
+    position: relative;
+    text-align: center;
+}
+section.intro .txtbox .sub::after{
+    content: "";
+    position: absolute;
+    bottom: 0%;
+    left: 50%;
+    margin-top: 10px;
+    transform: translateX(-50%);
+    height: .5px;
+    width: 90%;
+    background-color: #FD4766;
+}
+section.intro .txtbox .head{
+    color: #fddbe1;
+    font-size: 2.5rem;
+    font-weight: 900;
+    margin-top: -25px;
+    text-align: center;
+}
+section.intro .txtbox .para{
+    font-size: 1rem;
+    color: #919191;
+    padding: 0 25px;
+    text-align: center;
+    margin-top: 15px;
+}
+section.intro .imgbox{
+    height: 300px;
+    width: 300px;
+    display: flex;
+    justify-content: space-between;
+    opacity: 0.7;
+    position: relative;
+    margin-bottom:50px;
+}
+section.intro .imgbox .imgback{
+    border-radius:20px;
+    position: absolute;
+    top: 0;
+    left: 0;
+    background-color: linear-gradient(145deg, #1e2024, #23272b);
+    box-shadow: 10px 10px 19px #1c1e22, -10px -10px 19px #262a2e;
+    height: 100%;
+    width: 100%;
+}
+section.intro .imgbox img{
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    height: 130%;
+    width: 120%;
+}
+section.slider{
+    background-color: #212428;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding-top: 50px;
+    padding-bottom: 60px;
+}
+section.slider .container{
+    width: 90%;
+}
+section.slider .container .top{
+    display: flex;
+    flex-direction: row;
+    font-size: 1.2rem;
+    justify-content: space-evenly;
+    align-items: center;
+    background-color: linear-gradient(145deg, #1e2024, #23272b);
+    box-shadow: 10px 10px 19px #1c1e22, -10px -10px 19px #262a2e;
+    border-radius: 10px;
+    color: #fddbe1;
+    cursor: pointer;
+}
+section.slider .container .top .nav{
+    border-radius: 10px;
+    height: 100%;
+    width: 100%;
+    padding: 10px 0px;
+    text-align: center;
+    transition: all 0.5s ease-in-out;
+}
+section.slider .container .top .nav:hover{
+    background: -webkit-linear-gradient(120deg, #C2435E 20.69%, #FD4766 50.19%, #FD4766 79.69%);
+    -webkit-background-clip: text;  
+    -webkit-text-fill-color: transparent;
+    box-shadow: 10px 10px 19px #1c1e22, -10px -10px 19px #262a2e;
+    font-weight: 700;
+}
+.hover{
+    background: -webkit-linear-gradient(120deg, #C2435E 20.69%, #FD4766 50.19%, #FD4766 79.69%);
+    -webkit-background-clip: text;  
+    -webkit-text-fill-color: transparent;
+    box-shadow: 10px 10px 19px #1c1e22, -10px -10px 19px #262a2e;
+    font-weight: 700;
+}
+section.slider .container .txtarea{
+    font-size: 1rem;
+    color: #919191;
+    padding: 0 25px;
+    text-align: center;
+    margin-top: 30px;
+}
+section.proj{
+    background-color: #212428;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 0 25px;
+    padding-top: 50px;
+}
+section.proj .rowbox{
+    display: flex;
+    flex-direction: column-reverse;
+    align-items: center;
+}
+section.proj .txtbox .sub{
+    font-weight: 500;
+    font-size: 1.2rem;
+    margin-bottom: 25px;
+    background: -webkit-linear-gradient(120deg, #C2435E 20.69%, #744D68 50.19%, #FD4766 79.69%);
+    -webkit-background-clip: text;  
+    -webkit-text-fill-color: transparent;
+    position: relative;
+    text-align: center;
+}
+section.proj .txtbox .sub::after{
+    content: "";
+    position: absolute;
+    bottom: 0%;
+    left: 50%;
+    margin-top: 10px;
+    transform: translateX(-50%);
+    height: .5px;
+    width: 90%;
+    background-color: #FD4766;
+    text-align: center;
+}
+section.proj .txtbox .head{
+    color: #fddbe1;
+    font-size: 2.5rem;
+    font-weight: 900;
+    margin-top: -25px;
+    text-align: center;
+}
+section.proj .txtbox .para{
+    font-size: 1rem;
+    color: #919191;
+    padding: 0 25px;
+    text-align: center;
+    margin-top: 15px;
+}
+section.proj .imgbox{
+    height: 300px;
+    width: 300px;
+    display: flex;
+    justify-content: space-between;
+    opacity: 0.7;
+    position: relative;
+    margin-bottom:50px;
+}
+section.proj .imgbox .imgback{
+    border-radius:20px;
+    position: absolute;
+    top: 0;
+    left: 0;
+    background-color: linear-gradient(145deg, #1e2024, #23272b);
+    box-shadow: 10px 10px 19px #1c1e22, -10px -10px 19px #262a2e;
+    height: 100%;
+    width: 100%;
+}
+section.proj .imgbox img{
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    height: 130%;
+    width: 120%;
+}
+section.proj .container{
+    margin-top: 25px;
+    display: flex;
+    flex-direction: rowx ;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: center;
+}
+section.proj .container .box{
+    height: 450px;
+    width: 350px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    /* justify-content: center; */
+    background-color: linear-gradient(145deg, #1e2024, #23272b);
+    box-shadow: 10px 10px 19px #1c1e22, -10px -10px 19px #262a2e;
+    margin: 30px 15px;
+    border-radius: 20px;
+    padding: 30px;
+}
+section.proj .container .box .eimgbox{
+    height: 250px;
+    width: 300px;
+    border-radius: 20px;
+    overflow: hidden;
+    cursor: pointer;
+    transition: all 0.5s ease-in-out;
+}
+section.proj .container .box .eimgbox img{
+    height: 100%;
+    width: 100%;
+    transition: all 0.5s ease-in-out;
+}
+section.proj .container .box .eimgbox:hover img{
+    transform: scale(1.1,1.1);
+}
+section.proj .container .box .sub{
+    text-transform: uppercase;
+    font-weight: 500;
+    font-size: 1.2rem;
+    margin-bottom: 25px;
+    color: #FD4766;
+    margin-top: 30px;
+}
+section.proj .container .box .txt{
+    color: #fddbe1;
+    font-size: 1.8rem;
+    font-weight: 700;
+    margin-top: -20px;
+    text-align: center;
+    line-height: 1.5rem;
+}
+section.proj .container .box .btn{
+    border-radius: 10px;
+    color: #fddfe5;
+    padding: 7px 25px;
+    margin-top: 30px;
+    outline: none;
+    border:none;
+    cursor: pointer;
+    transition: all 0.5s ease-in-out;
+    padding-bottom: 10px;
+    box-shadow: 1px 4px 2px -3px rgba(0, 0, 0, 0.7) inset, -1px -3px 3px -2px rgba(255, 255, 255, 0.2) inset;
+    background-color: linear-gradient(145deg, #1e2024, #23272b);
+    font-size: 1.2rem;
+    font-weight: 500;
+}
+section.proj .container .box .btn:hover{
+    box-shadow: inset 21px 21px 19px #181a1d, inset -21px -21px 19px #202225;
+    color: #FD4766;
+}
+section.skill{
+    background-color: #212428;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 0 25px;
+    padding-top: 150px;
+}
+section.skill .txtbox .sub{
+    font-weight: 500;
+    font-size: 1.2rem;
+    margin-bottom: 25px;
+    background: -webkit-linear-gradient(120deg, #C2435E 20.69%, #744D68 50.19%, #FD4766 79.69%);
+    -webkit-background-clip: text;  
+    -webkit-text-fill-color: transparent;
+    position: relative;
+    text-align: center;
+}
+section.skill .txtbox .sub::after{
+    content: "";
+    position: absolute;
+    bottom: 0%;
+    left: 50%;
+    margin-top: 10px;
+    transform: translateX(-50%);
+    height: .5px;
+    width: 90%;
+    background-color: #FD4766;
+}
+section.skill .txtbox .head{
+    color: #fddbe1;
+    font-size: 2.5rem;
+    font-weight: 900;
+    margin-top: -25px;
+    text-align: center;
+}
+section.skill .txtbox .para{
+    font-size: 1rem;
+    color: #919191;
+    padding: 0 25px;
+    text-align: center;
+    margin-top: 15px;
+}
+section.skill .imgbox{
+    height: 300px;
+    width: 300px;
+    display: flex;
+    justify-content: space-between;
+    opacity: 0.7;
+    position: relative;
+    margin-bottom:50px;
+}
+section.skill .imgbox .imgback{
+    border-radius:20px;
+    position: absolute;
+    top: 0;
+    left: 0;
+    background-color: linear-gradient(145deg, #1e2024, #23272b);
+    box-shadow: 10px 10px 19px #1c1e22, -10px -10px 19px #262a2e;
+    height: 100%;
+    width: 100%;
+}
+section.skill .imgbox img{
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    height: 130%;
+    width: 120%;
+}
+section.skill .barcontainer{
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+}
+section.skill .barcontainer .txtbx{
+    display: flex;
+    flex-direction: column;
+    margin: 15px;
+}
+section.skill .barcontainer .txtbx .txt{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    padding:0 10px;
+    margin-bottom: 7px;
+    font-weight: 600;
+    color: #fddfe5;
+}
+section.skill .barcontainer .txtbx .meter{
+    display: flex;
+    flex-direction: column;
+    box-sizing: content-box;
+    height: 15px; 
+    width: 100%;
+    position: relative;
+    background: #555;
+    border-radius: 25px;
+    padding: 5px;
+    background-color: linear-gradient(145deg, #1e2024, #23272b);
+    box-shadow: inset 21px 21px 19px #181a1d, inset -21px -21px 19px #202225;
+}
+section.skill .barcontainer .txtbx .meter span{
+    display: block;
+    height: 100%;
+    border-top-right-radius: 8px;
+    border-bottom-right-radius: 8px;
+    border-top-left-radius: 20px;
+    border-bottom-left-radius: 20px;
+    background: -webkit-linear-gradient(120deg, #C2435E 20.69%, #744D68 50.19%, #FD4766 79.69%);
+    box-shadow: inset 0 2px 9px rgba(255, 255, 255, 0.3),inset 0 -2px 6px rgba(0, 0, 0, 0.4);
+    position: relative;
+    overflow: hidden;
+}
+section.skill .txtbox .para{
+    font-size: 1rem;
+    color: #919191;
+    padding: 0 25px;
+    text-align: center;
+    margin-top: 15px;
+}
+section.achiv{
+    background-color: #212428;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 0 25px;
+    padding-top: 150px;
+}
+section.achiv .rowbox{
+    display: flex;
+    flex-direction: column-reverse;
+    align-items: center;
+}
+section.achiv .txtbox .sub{
+    font-weight: 500;
+    font-size: 1.2rem;
+    margin-bottom: 25px;
+    background: -webkit-linear-gradient(120deg, #C2435E 20.69%, #744D68 50.19%, #FD4766 79.69%);
+    -webkit-background-clip: text;  
+    -webkit-text-fill-color: transparent;
+    position: relative;
+    text-align: center;
+}
+section.achiv .txtbox .sub::after{
+    content: "";
+    position: absolute;
+    bottom: 0%;
+    left: 50%;
+    margin-top: 10px;
+    transform: translateX(-50%);
+    height: .5px;
+    width: 90%;
+    background-color: #FD4766;
+}
+section.achiv .txtbox .head{
+    color: #fddbe1;
+    font-size: 2.5rem;
+    font-weight: 900;
+    margin-top: -25px;
+    text-align: center;
+}
+section.achiv .txtbox .para{
+    font-size: 1rem;
+    color: #919191;
+    padding: 0 25px;
+    text-align: center;
+    margin-top: 15px;
+}
+section.achiv .imgbox{
+    height: 300px;
+    width: 300px;
+    display: flex;
+    justify-content: space-between;
+    opacity: 0.7;
+    position: relative;
+    margin-bottom:50px;
+}
+section.achiv .imgbox .imgback{
+    border-radius:20px;
+    position: absolute;
+    top: 0;
+    left: 0;
+    background-color: linear-gradient(145deg, #1e2024, #23272b);
+    box-shadow: 10px 10px 19px #1c1e22, -10px -10px 19px #262a2e;
+    height: 100%;
+    width: 100%;
+}
+section.achiv .imgbox img{
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    height: 130%;
+    width: 100%;
+}
+section.achiv .achivbox{   
+    margin-top: 25px;
+    display: flex;
+    flex-direction: rowx ;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: center;
+}
+section.achiv .achivbox .abox{
+    height: 250px;
+    width: 250px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    background-color: linear-gradient(145deg, #1e2024, #23272b);
+    box-shadow: 10px 10px 19px #1c1e22, -10px -10px 19px #262a2e;
+    margin: 30px 15px;
+    border-radius: 20px;
+    padding: 30px;
+}
+section.achiv .achivbox .abox i{
+    font-size: 2.5rem;
+    padding-bottom: 20px;
+    color: #FD4766;
+    background: -webkit-linear-gradient(120deg, #C2435E 20.69%, #744D68 50.19%, #FD4766 79.69%);
+    -webkit-background-clip: text;  
+    -webkit-text-fill-color: transparent;
+}
+section.achiv .achivbox .abox .sub{
+    font-size: 3rem;
+    background: -webkit-linear-gradient(120deg, #fddfe5 20.69%, #fda0af 50.19%, #fddbe1 79.69%);
+    -webkit-background-clip: text;  
+    -webkit-text-fill-color: transparent;
+    text-align: center;
+    font-weight: 700;
+}
+section.achiv .achivbox .abox .txt{
+    font-size: 1.5rem;
+    text-align: center;
+    font-weight: 500;
+    color: #919191;
+    margin-top: -7px;
+}
+
+
+section.team{
+    background-color: #212428;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 0 25px;
+    padding-top: 150px;
+}
+section.team .rowbox{
+    display: flex;
+    flex-direction: column-reverse;
+    align-items: center;
+}
+section.team .txtbox .sub{
+    font-weight: 500;
+    font-size: 1.2rem;
+    margin-bottom: 25px;
+    background: -webkit-linear-gradient(120deg, #C2435E 20.69%, #744D68 50.19%, #FD4766 79.69%);
+    -webkit-background-clip: text;  
+    -webkit-text-fill-color: transparent;
+    position: relative;
+    text-align: center;
+}
+section.team .txtbox .sub::after{
+    content: "";
+    position: absolute;
+    bottom: 0%;
+    left: 50%;
+    margin-top: 10px;
+    transform: translateX(-50%);
+    height: .5px;
+    width: 90%;
+    background-color: #FD4766;
+    text-align: center;
+}
+section.team .txtbox .head{
+    color: #fddbe1;
+    font-size: 2.5rem;
+    font-weight: 900;
+    margin-top: -25px;
+    text-align: center;
+}
+section.team .txtbox .para{
+    font-size: 1rem;
+    color: #919191;
+    padding: 0 25px;
+    text-align: center;
+    margin-top: 15px;
+}
+section.team .imgbox{
+    height: 300px;
+    width: 300px;
+    display: flex;
+    justify-content: space-between;
+    opacity: 0.7;
+    position: relative;
+    margin-bottom:50px;
+}
+section.team .imgbox .imgback{
+    border-radius:20px;
+    position: absolute;
+    top: 0;
+    left: 0;
+    background-color: linear-gradient(145deg, #1e2024, #23272b);
+    box-shadow: 10px 10px 19px #1c1e22, -10px -10px 19px #262a2e;
+    height: 100%;
+    width: 100%;
+}
+section.team .imgbox img{
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    margin-bottom: -30px;
+    height: 130%;
+    width: 120%;
+}
+section.team .container{
+    margin-top: 25px;
+    display: flex;
+    flex-direction: rowx ;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: center;
+}
+section.team .container .box{
+    height: 450px;
+    width: 350px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    /* justify-content: center; */
+    background-color: linear-gradient(145deg, #1e2024, #23272b);
+    box-shadow: 10px 10px 19px #1c1e22, -10px -10px 19px #262a2e;
+    margin: 30px 15px;
+    border-radius: 20px;
+    padding: 30px;
+}
+section.team .container .box .eimgbox{
+    height: 250px;
+    width: 300px;
+    border-radius: 20px;
+    overflow: hidden;
+    cursor: pointer;
+    transition: all 0.5s ease-in-out;
+    position: relative;
+}
+section.team .container .box .eimgbox img{
+    height: 100%;
+    width: 100%;
+    transition: all 0.5s ease-in-out;
+}
+section.team .container .box .eimgbox p{
+    font-size: 1.2rem;
+    position: absolute;
+    text-align: center;
+    z-index: 10;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    color: #fddfe5;
+    font-weight: 500;
+    padding: 0 10px;
+    padding-top: 45%;
+    height: 100%;
+    width: 100%;
+    opacity: 0;
+    transition: all 0.5s ease-in-out;
+    background: linear-gradient(to bottom, rgba(0, 0, 0, 0), #FD4766 100%);
+    line-height: 1rem;
+}
+section.team .container .box .eimgbox:hover p{
+    opacity: 1;
+}
+section.team .container .box .eimgbox:hover img{
+    transform: scale(1.1,1.1);
+}
+section.team .container .box .sub{
+    text-transform: uppercase;
+    font-weight: 500;
+    font-size: 1.2rem;
+    margin-bottom: 25px;
+    color: #FD4766;
+    margin-top: 30px;
+}
+section.team .container .box .txt{
+    color: #fddbe1;
+    font-size: 1.8rem;
+    font-weight: 700;
+    margin-top: -20px;
+    text-align: center;
+    line-height: 1.5rem;
+}
+section.team .container .box .social{
+    display: flex;
+    flex-direction: row;
+    margin-top: 20px;
+}
+section.team .container .box .social a{
+    text-decoration: none;
+}
+section.team .container .box .btn{
+    border-radius: 50%;
+    background-color: linear-gradient(145deg, #1e2024, #23272b);
+    color: #fddfe5;
+    height: 40px;
+    width: 40px;
+    display: grid;
+    place-items: center;
+    outline: none;
+    border:none;
+    cursor: pointer;
+    transition: all 0.5s ease-in-out;
+    box-shadow: 1px 4px 2px -3px rgba(0, 0, 0, 0.7) inset, -1px -3px 3px -2px rgba(255, 255, 255, 0.2) inset;
+    font-size: 1.2rem;
+    line-height: 1.2rem;
+    font-weight: 500;
+    margin: 0 5px;
+}
+section.team .container .box .btn:hover{
+    box-shadow: inset 21px 21px 19px #181a1d, inset -21px -21px 19px #202225;
+    color: #FD4766;
+}
+section.perks{
+    background-color: #212428;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 0 25px;
+    padding-top: 150px;
+}
+section.perks .rowbox{
+    display: flex;
+    flex-direction: column-reverse;
+    align-items: center;
+}
+section.perks .txtbox .sub{
+    font-weight: 500;
+    font-size: 1.2rem;
+    margin-bottom: 25px;
+    background: -webkit-linear-gradient(120deg, #C2435E 20.69%, #744D68 50.19%, #FD4766 79.69%);
+    -webkit-background-clip: text;  
+    -webkit-text-fill-color: transparent;
+    position: relative;
+    text-align: center;
+}
+section.perks .txtbox .sub::after{
+    content: "";
+    position: absolute;
+    bottom: 0%;
+    left: 50%;
+    margin-top: 10px;
+    transform: translateX(-50%);
+    height: .5px;
+    width: 90%;
+    background-color: #FD4766;
+}
+section.perks .txtbox .head{
+    color: #fddbe1;
+    font-size: 2.5rem;
+    font-weight: 900;
+    margin-top: -25px;
+    text-align: center;
+}
+section.perks .txtbox .para{
+    font-size: 1rem;
+    color: #919191;
+    padding: 0 25px;
+    text-align: center;
+    margin-top: 15px;
+}
+section.perks .imgbox{
+    height: 300px;
+    width: 300px;
+    display: flex;
+    justify-content: space-between;
+    opacity: 0.7;
+    position: relative;
+    margin-bottom:50px;
+}
+section.perks .imgbox .imgback{
+    border-radius:20px;
+    position: absolute;
+    top: 0;
+    left: 0;
+    background-color: linear-gradient(145deg, #1e2024, #23272b);
+    box-shadow: 10px 10px 19px #1c1e22, -10px -10px 19px #262a2e;
+    height: 100%;
+    width: 100%;
+}
+section.perks .imgbox img{
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    height: 130%;
+    width: 120%;
+}
+section.perks .achivbox{   
+    margin-top: 25px;
+    display: flex;
+    flex-direction: rowx ;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: center;
+}
+section.perks .achivbox .abox{
+    height: 250px;
+    width: 250px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    background-color: linear-gradient(145deg, #1e2024, #23272b);
+    box-shadow: 10px 10px 19px #1c1e22, -10px -10px 19px #262a2e;
+    margin: 30px 15px;
+    border-radius: 20px;
+    padding: 30px;
+}
+section.perks .achivbox .abox i{
+    font-size: 2.5rem;
+    padding-bottom: 20px;
+    color: #FD4766;
+    background: -webkit-linear-gradient(120deg, #C2435E 20.69%, #744D68 50.19%, #FD4766 79.69%);
+    -webkit-background-clip: text;  
+    -webkit-text-fill-color: transparent;
+}
+section.perks .achivbox .abox .sub{
+    font-size: 3rem;
+    background: -webkit-linear-gradient(120deg, #fddfe5 20.69%, #fda0af 50.19%, #fddbe1 79.69%);
+    -webkit-background-clip: text;  
+    -webkit-text-fill-color: transparent;
+    text-align: center;
+    font-weight: 700;
+}
+section.perks .achivbox .abox .txt{
+    font-size: 1.2rem;
+    text-align: center;
+    font-weight: 500;
+    color: #919191;
+    /* margin-top: -5px; */
+    line-height: 1.1rem;
+}
+section.collab{
+    background-color: #212428;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 0 25px;
+    padding-top: 150px;
+}
+section.collab .rowbox{
+    display: flex;
+    flex-direction: column-reverse;
+    align-items: center;
+}
+section.collab .txtbox .sub{
+    font-weight: 500;
+    font-size: 1.2rem;
+    margin-bottom: 25px;
+    background: -webkit-linear-gradient(120deg, #C2435E 20.69%, #744D68 50.19%, #FD4766 79.69%);
+    -webkit-background-clip: text;  
+    -webkit-text-fill-color: transparent;
+    position: relative;
+    text-align: center;
+}
+section.collab .txtbox .sub::after{
+    content: "";
+    position: absolute;
+    bottom: 0%;
+    left: 50%;
+    margin-top: 10px;
+    transform: translateX(-50%);
+    height: .5px;
+    width: 90%;
+    background-color: #FD4766;
+    text-align: center;
+}
+section.collab .txtbox .head{
+    color: #fddbe1;
+    font-size: 2.5rem;
+    font-weight: 900;
+    margin-top: -25px;
+    text-align: center;
+}
+section.collab .txtbox .para{
+    font-size: 1rem;
+    color: #919191;
+    padding: 0 25px;
+    text-align: center;
+    margin-top: 15px;
+}
+section.collab .imgbox{
+    height: 300px;
+    width: 300px;
+    display: flex;
+    justify-content: space-between;
+    opacity: 0.7;
+    position: relative;
+    margin-bottom:50px;
+}
+section.collab .imgbox .imgback{
+    border-radius:20px;
+    position: absolute;
+    top: 0;
+    left: 0;
+    background-color: linear-gradient(145deg, #1e2024, #23272b);
+    box-shadow: 10px 10px 19px #1c1e22, -10px -10px 19px #262a2e;
+    height: 100%;
+    width: 100%;
+}
+section.collab .imgbox img{
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    height: 130%;
+    width: 120%;
+}
+section.collab .container{
+    margin-top: 25px;
+    display: flex;
+    flex-direction: rowx ;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: center;
+}
+section.collab .container .box{
+    height: 300px;
+    width: 300px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    /* justify-content: center; */
+    background-color: linear-gradient(145deg, #1e2024, #23272b);
+    box-shadow: 10px 10px 19px #1c1e22, -10px -10px 19px #262a2e;
+    margin: 30px 15px;
+    border-radius: 20px;
+    padding: 30px;
+}
+section.collab .container .box .eimgbox{
+    height: 250px;
+    width: 250px;
+    border-radius: 20px;
+    overflow: hidden;
+    cursor: pointer;
+    transition: all 0.5s ease-in-out;
+}
+section.collab .container .box .eimgbox img{
+    height: 100%;
+    width: 100%;
+    transition: all 0.5s ease-in-out;
+    filter: grayscale(90%);
+}
+section.collab .container .box .eimgbox:hover img{
+    transform: scale(1.1,1.1);
+    filter: grayscale(0%);
+}
+section.views{
+    background-color: #212428;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 0 25px;
+    padding-top: 150px;
+}
+section.views .rowbox{
+    display: flex;
+    flex-direction: column-reverse;
+    align-items: center;
+}
+section.views .txtbox .sub{
+    font-weight: 500;
+    font-size: 1.2rem;
+    margin-bottom: 25px;
+    background: -webkit-linear-gradient(120deg, #C2435E 20.69%, #744D68 50.19%, #FD4766 79.69%);
+    -webkit-background-clip: text;  
+    -webkit-text-fill-color: transparent;
+    position: relative;
+    text-align: center;
+}
+section.views .txtbox .sub::after{
+    content: "";
+    position: absolute;
+    bottom: 0%;
+    left: 50%;
+    margin-top: 10px;
+    transform: translateX(-50%);
+    height: .5px;
+    width: 90%;
+    background-color: #FD4766;
+    text-align: center;
+}
+section.views .txtbox .head{
+    color: #fddbe1;
+    font-size: 2.5rem;
+    font-weight: 900;
+    margin-top: -25px;
+    text-align: center;
+}
+section.views .txtbox .para{
+    font-size: 1rem;
+    color: #919191;
+    padding: 0 25px;
+    text-align: center;
+    margin-top: 15px;
+}
+section.views .imgbox{
+    height: 300px;
+    width: 300px;
+    display: flex;
+    justify-content: space-between;
+    opacity: 0.7;
+    position: relative;
+    margin-bottom:50px;
+}
+section.views .imgbox .imgback{
+    border-radius:20px;
+    position: absolute;
+    top: 0;
+    left: 0;
+    background-color: linear-gradient(145deg, #1e2024, #23272b);
+    box-shadow: 10px 10px 19px #1c1e22, -10px -10px 19px #262a2e;
+    height: 100%;
+    width: 100%;
+}
+section.views .imgbox img{
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    height: 130%;
+    width: 120%;
+}
+section.views .container{
+    width: 100%;
+    margin-top: 75px;
+}
+section.views .container .box1{
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: space-evenly;
+    width: 100%;
+}
+section.views .container .box1 .cbox{
+    height: 450px;
+    width: 350px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    /* justify-content: center; */
+    background-color: linear-gradient(145deg, #1e2024, #23272b);
+    box-shadow: 10px 10px 19px #1c1e22, -10px -10px 19px #262a2e;
+    margin: 30px 15px;
+    border-radius: 20px;
+    padding: 30px;
+}
+section.views .container .box1 .cbox .eimgbox{
+    height: 250px;
+    width: 300px;
+    border-radius: 20px;
+    overflow: hidden;
+    cursor: pointer;
+    transition: all 0.5s ease-in-out;
+    position: relative;
+}
+section.views .container .box1 .cbox .eimgbox img{
+    height: 100%;
+    width: 100%;
+    transition: all 0.5s ease-in-out;
+}
+section.views .container .box1 .cbox .eimgbox:hover img{
+    transform: scale(1.1,1.1);
+}
+section.views .container .box1 .cbox .sub{
+    text-transform: uppercase;
+    font-weight: 500;
+    font-size: 1.2rem;
+    margin-bottom: 25px;
+    color: #FD4766;
+    margin-top: 30px;
+}
+section.views .container .box1 .cbox .txt{
+    color: #fddbe1;
+    font-size: 1.8rem;
+    font-weight: 700;
+    margin-top: -20px;
+    text-align: center;
+    line-height: 1.5rem;
+}
+section.views .container .box1 .cbox .social{
+    display: flex;
+    flex-direction: row;
+    margin-top: 20px;
+}
+section.views .container .box1 .cbox .social a{
+    text-decoration: none;
+}
+section.views .container .box1 .cbox .btn{
+    border-radius: 50%;
+    background-color: linear-gradient(145deg, #1e2024, #23272b);
+    color: #fddfe5;
+    height: 40px;
+    width: 40px;
+    display: grid;
+    place-items: center;
+    outline: none;
+    border:none;
+    cursor: pointer;
+    transition: all 0.5s ease-in-out;
+    box-shadow: 1px 4px 2px -3px rgba(0, 0, 0, 0.7) inset, -1px -3px 3px -2px rgba(255, 255, 255, 0.2) inset;
+    font-size: 1.2rem;
+    line-height: 1.2rem;
+    font-weight: 500;
+    margin: 0 5px;
+}
+section.views .container .box1 .cbox .btn:hover{
+    box-shadow: inset 21px 21px 19px #181a1d, inset -21px -21px 19px #202225;
+    color: #FD4766;
+}
+section.views .container .box1 .reviewbox{
+    height: 100%;
+    padding-top: 50px;
+}
+section.views .container .box1 .reviewbox .controlbox{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    height: 70px;
+    width: 100%;
+    padding: 0 10px;
+    display: none;
+}
+section.views .container .box1 .reviewbox .controlbox .quote{
+    font-size: 5rem;
+    color: #181A1D;
+    padding-left: 25px;
+}
+section.views .container .box1 .reviewbox .controlbox .control i{
+    border-radius: 50%;
+    background-color: linear-gradient(145deg, #1e2024, #23272b);
+    color: #fddfe5;
+    height: 50px;
+    width: 50px;
+    display: grid;
+    place-items: center;
+    outline: none;
+    border:none;
+    cursor: pointer;
+    transition: all 0.5s ease-in-out;
+    box-shadow: 1px 4px 2px -3px rgba(0, 0, 0, 0.7) inset, -1px -3px 3px -2px rgba(255, 255, 255, 0.2) inset;
+    font-size: 1.2rem;
+    line-height: 1.2rem;
+    /* font-weight: 500; */
+    margin: 0 5px;
+}
+section.views .container .box1 .reviewbox .controlbox .control i:hover{
+    box-shadow: inset 21px 21px 19px #181a1d, inset -21px -21px 19px #202225;
+    color: #FD4766;
+}
+section.views .container .box1 .reviewbox .txtbox{
+    min-height: 300px;
+    width: 350px;
+    border-radius: 20px;
+    background-color: linear-gradient(145deg, #1e2024, #23272b);
+    box-shadow: 10px 10px 19px #1c1e22, -10px -10px 19px #262a2e;
+    margin: 30px 15px;
+    border-radius: 20px;
+    padding: 30px;
+    color: #919191;
+    font-size: 1.2rem;
+}
+section.views .container .box1 .reviewbox{
+    margin-top: -60px;
+}
+section.views .container .box2{
+    margin-top: 20px;
+}
+section.views .container .box2 i{
+    font-size: 1rem;
+    height: 1.2rem;
+    width: 1.2rem;
+    margin: 0 5px;
+    border-radius: 50%;
+    transition: all 0.5s ease-in-out;
+    cursor: pointer;
+    color: transparent;
+    box-shadow: 1px 4px 2px -3px rgba(0, 0, 0, 0.7) inset, -1px -3px 3px -2px rgba(255, 255, 255, 0.2) inset;
+    background-color: linear-gradient(145deg, #1e2024, #23272b);
+    display: grid;
+    place-items: center;
+}
+section.views .container .box2 i:hover{
+    box-shadow: inset 21px 21px 19px #181a1d, inset -21px -21px 19px #202225;
+    color: #FD4766;
+}
+section.contact{
+    background-color: #212428;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 0 25px;
+    padding-top: 150px;
+}
+section.contact .rowbox{
+    display: flex;
+    flex-direction: column-reverse;
+    align-items: center;
+}
+section.contact .txtbox .sub{
+    font-weight: 500;
+    font-size: 1.2rem;
+    margin-bottom: 25px;
+    background: -webkit-linear-gradient(120deg, #C2435E 20.69%, #744D68 50.19%, #FD4766 79.69%);
+    -webkit-background-clip: text;  
+    -webkit-text-fill-color: transparent;
+    position: relative;
+    text-align: center;
+}
+section.contact .txtbox .sub::after{
+    content: "";
+    position: absolute;
+    bottom: 0%;
+    left: 50%;
+    margin-top: 10px;
+    transform: translateX(-50%);
+    height: .5px;
+    width: 90%;
+    background-color: #FD4766;
+    text-align: center;
+}
+section.contact .txtbox .head{
+    color: #fddbe1;
+    font-size: 2.5rem;
+    font-weight: 900;
+    margin-top: -25px;
+    text-align: center;
+}
+section.contact .txtbox .para{
+    font-size: 1rem;
+    color: #919191;
+    padding: 0 25px;
+    text-align: center;
+    margin-top: 15px;
+}
+section.contact .imgbox{
+    height: 300px;
+    width: 300px;
+    display: flex;
+    justify-content: space-between;
+    opacity: 0.7;
+    position: relative;
+    margin-bottom:50px;
+}
+section.contact .imgbox .imgback{
+    border-radius:20px;
+    position: absolute;
+    top: 0;
+    left: 0;
+    background-color: linear-gradient(145deg, #1e2024, #23272b);
+    box-shadow: 10px 10px 19px #1c1e22, -10px -10px 19px #262a2e;
+    height: 100%;
+    width: 100%;
+}
+section.contact .imgbox img{
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    height: 130%;
+    width: 120%;
+}
+section.contact .contactbox{
+    display: flex;
+    flex-direction: column-reverse;
+    align-items: center;
+    justify-content: space-evenly;
+    width: 100%;
+    padding-bottom: 100px;
+    margin-top: 75px;
+}
+
+section.contact .contactbox .detailbox{
+    width: 100%;
+    height: 100%;
+    border-radius: 20px;
+    background-color: linear-gradient(145deg, #1e2024, #23272b);
+    box-shadow: 10px 10px 19px #1c1e22, -10px -10px 19px #262a2e;
+    margin: 20px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding: 20px;
+}
+section.contact .contactbox .detailbox .txtbox{
+    margin: 10px 0;
+    width: 100%;
+}
+section.contact .contactbox .detailbox .txtbox b{
+    color: #FD4766;
+    font-weight: 500;
+    font-size: 1.5rem;
+    margin: 5px 0;
+}
+section.contact .contactbox .detailbox .txtbox p{
+    color: #919191;
+    font-weight: 300;
+    font-size: 1.2rem;
+    margin-top: 10px;
+    display: flex;
+    flex-direction: row;
+    line-height: 1.2rem;
+}
+section.contact .contactbox .detailbox .txtbox p i{
+    margin-right: 7px;
+}
+section.contact .contactbox .detailbox .txtbox p.social a{
+    text-decoration: none;
+}
+section.contact .contactbox .detailbox .txtbox p.social i{
+    font-size: 1rem;
+    height: 2rem;
+    width:2rem;
+    margin: 0 10px;
+    border-radius: 50%;
+    transition: all 0.5s ease-in-out;
+    cursor: pointer;
+    color: #919191;
+    box-shadow: 1px 4px 2px -3px rgba(0, 0, 0, 0.7) inset, -1px -3px 3px -2px rgba(255, 255, 255, 0.2) inset;
+    background-color: linear-gradient(145deg, #1e2024, #23272b);
+    display: grid;
+    place-items: center;
+}
+section.contact .contactbox .detailbox .txtbox p.social i:first-child{
+    margin-left: 0;
+}
+section.contact .contactbox .detailbox .txtbox p.social i:hover{
+    box-shadow: inset 21px 21px 19px #181a1d, inset -21px -21px 19px #202225;
+    color: #FD4766;
+}
+
+section.contact .contactbox .mapbox{
+    width: 100%;
+    height: 450px;
+    border-radius: 20px;
+    background-color: linear-gradient(145deg, #1e2024, #23272b);
+    box-shadow: 10px 10px 19px #1c1e22, -10px -10px 19px #262a2e;
+    margin: 20px;
+    overflow: hidden;
+}
+section.contact .contactbox .mapbox iframe{
+    height: 100%;
+    width: 100%;
+}
+.sec{
+    display: none;
+}
+@media (min-width:1200px){
+    .hambox{
+        right: 15px;
+        padding: 25px;
+        font-size: 1.5rem;
+    }
+    .header{
+        padding: 10px 7px;
+        margin-top: 20px;
+    }
+    .header_left{
+        justify-content: flex-start;
+        padding-right: 25px;
+        width:0;
+    }
+    .header_left .logo{
+        justify-content: flex-start;
+        width:0;
+    }
+    .header_left .logo a img{
+        height: 60px;
+        width: 60px;
+    }
+    .header_left .logo a:last-child img{
+        height: 60px;
+        width: 50px;
+    }
+    .header_right{
+        display: block;
+    }
+    .landing{
+        flex-direction: row;
+    }
+    .landing .imgbox{
+        height: 450px;
+    }
+    .landing .txtbox{
+        line-height: normal;
+    }
+    .landing .txtbox .sub{
+        font-weight: 400;
+        font-size: 2.5rem;
+        margin-bottom: 10px;
+        ottom: 10px;
+    }
+    .landing .txtbox .head{
+        font-size: 7rem;
+        line-height: 7rem;
+        font-weight: 900;
+        padding-bottom:2.5px;
+    }
+    .landing .txtbox .head::after{
+        height: 2.5px;
+        width: 90%;
+    }
+    .landing .txtbox .title{
+        margin-top: 2.5px;
+        line-height: normal;
+        font-size: 2rem;
+    }
+    section.intro{
+        padding: 50px 50px;
+        padding-top: 100px;
+        flex-direction: row;
+        justify-content: space-evenly;
+        padding-top: 150px;
+    }
+    section.intro .txtbox{
+        width: 50%;
+    }
+    section.intro .txtbox .sub{
+        font-size: 1.5rem;
+    }
+    section.intro .txtbox .sub::after{
+        height: 1px;
+    }
+    section.intro .txtbox .head{
+        color: #fddbe1;
+        font-size: 5rem;
+        margin-top: -40px;
+    }
+    section.intro .txtbox .para{
+        padding: 0 25px;
+        margin-top: 15px;
+        font-size: 1.5rem;
+    }
+    section.intro .imgbox{
+        height: 300px;
+        width: 300px;
+        margin-bottom:0px;
+    }
+    section.intro .imgbox img{
+        position: absolute;
+        bottom: 0;
+        left: 50%;
+        transform: translateX(-50%);
+        height: 130%;
+        width: 120%;
+    }
+    section.slider{
+        padding-top:75px;
+        padding-bottom: 60px;
+    }
+    section.slider .container .top{
+        font-size: 2rem;
+    }
+    section.slider .container .top .nav{
+        padding: 20px 0px;
+    }
+    
+    section.slider .container .txtarea{
+        padding: 0 50px;
+        margin-top: 75px;
+        font-size: 1.5rem;
+    }
+    section.proj{
+        padding: 50px 50px;
+        padding-top: 100px;
+    }
+    section.proj .rowbox{
+        
+        flex-direction: row;
+        justify-content: space-evenly;
+    }
+    section.proj .txtbox{
+        width: 50%;
+    }
+    section.proj .txtbox .sub{
+        font-size: 1.5rem;
+    }
+    section.proj .txtbox .sub::after{
+        height: 1px;
+    }
+    section.proj .txtbox .head{
+        color: #fddbe1;
+        font-size: 5rem;
+        margin-top: -40px;
+    }
+    section.proj .txtbox .para{
+        padding: 0 25px;
+        margin-top: 15px;
+        font-size: 1.5rem;
+    }
+    section.proj .imgbox{
+        height: 300px;
+        width: 300px;
+        margin-bottom:0px;
+    }
+    section.proj .imgbox img{
+        position: absolute;
+        bottom: 0;
+        left: 50%;
+        transform: translateX(-50%);
+        height: 130%;
+        width: 120%;
+    }
+    section.proj .container{
+        padding-top: 70px;
+    }
+    section.skill{
+        padding: 30px 20px;
+        flex-direction: row;
+        justify-content: space-evenly;
+        padding-top: 50px;
+    }
+    section.skill .txtbox{
+        width: 50%;
+        justify-content: flex-start;
+        height: 500px;
+    }
+    section.skill .txtbox .sub{
+        font-size: 1.5rem;
+    }
+    section.skill .txtbox .sub::after{
+        height: 1px;
+    }
+    section.skill .txtbox .head{
+        color: #fddbe1;
+        font-size: 3rem;
+        margin-top: -30px;
+    }
+    section.skill .txtbox .para{
+        padding: 0 25px;
+        margin-top: 15px;
+        font-size: 1.5rem;
+    }
+    section.skill .imgbox{
+        height: 500px;
+        width: 500px;
+        margin-bottom:0px;
+        margin-top: 100px;
+    }
+    section.skill .imgbox img{
+        position: absolute;
+        bottom: 0;
+        left: 50%;
+        transform: translateX(-50%);
+        height: 120%;
+        width: 120%;
+    }
+    section.achiv{
+        padding: 50px 50px;
+        padding-top: 100px;
+        padding-top: 100px;
+    }
+    section.achiv .rowbox{
+        
+        flex-direction: row;
+        justify-content: space-evenly;
+    }
+    section.achiv .txtbox{
+        width: 50%;
+    }
+    section.achiv .txtbox .sub{
+        font-size: 1.5rem;
+    }
+    section.achiv .txtbox .sub::after{
+        height: 1px;
+    }
+    section.achiv .txtbox .head{
+        color: #fddbe1;
+        font-size: 5rem;
+        margin-top: -40px;
+    }
+    section.achiv .txtbox .para{
+        padding: 0 25px;
+        margin-top: 15px;
+        font-size: 1.5rem;
+    }
+    section.achiv .imgbox{
+        height: 300px;
+        width: 300px;
+        margin-bottom:0px;
+    }
+    section.achiv .imgbox img{
+        position: absolute;
+        bottom: 0;
+        left: 50%;
+        transform: translateX(-50%);
+        height: 130%;
+        width: 120%;
+    }
+    section.achiv .achivbox{
+        padding-top: 70px;
+    }
+    section.team{
+        padding: 50px 50px;
+        padding-top: 100px;
+    }
+    section.team .rowbox{
+        
+        flex-direction: row;
+        justify-content: space-evenly;
+    }
+    section.team .txtbox{
+        width: 50%;
+    }
+    section.team .txtbox .sub{
+        font-size: 1.5rem;
+    }
+    section.team .txtbox .sub::after{
+        height: 1px;
+    }
+    section.team .txtbox .head{
+        color: #fddbe1;
+        font-size: 5rem;
+        margin-top: -40px;
+    }
+    section.team .txtbox .para{
+        padding: 0 25px;
+        margin-top: 15px;
+        font-size: 1.5rem;
+    }
+    section.team .imgbox{
+        height: 300px;
+        width: 300px;
+        margin-bottom:0px;
+    }
+    section.team .imgbox img{
+        position: absolute;
+        bottom: 0;
+        left: 50%;
+        transform: translateX(-50%);
+        height: 130%;
+        width: 120%;
+    }
+    section.team .container{
+        padding-top: 70px;
+    }
+    section.perks{
+        padding: 50px 50px;
+        padding-top: 100px;
+    }
+    section.perks .rowbox{
+        
+        flex-direction: row;
+        justify-content: space-evenly;
+    }
+    section.perks .txtbox{
+        width: 50%;
+    }
+    section.perks .txtbox .sub{
+        font-size: 1.5rem;
+    }
+    section.perks .txtbox .sub::after{
+        height: 1px;
+    }
+    section.perks .txtbox .head{
+        color: #fddbe1;
+        font-size: 5rem;
+        margin-top: -40px;
+    }
+    section.perks .txtbox .para{
+        padding: 0 25px;
+        margin-top: 15px;
+        font-size: 1.5rem;
+    }
+    section.perks .imgbox{
+        height: 300px;
+        width: 300px;
+        margin-bottom:0px;
+    }
+    section.perks .imgbox img{
+        position: absolute;
+        bottom: 0;
+        left: 50%;
+        transform: translateX(-50%);
+        height: 130%;
+        width: 120%;
+    }
+    section.perks .achivbox{
+        padding-top: 70px;
+    }
+    section.collab{
+        padding: 50px 50px;
+        padding-top: 100px;
+    }
+    section.collab .rowbox{
+        
+        flex-direction: row;
+        justify-content: space-evenly;
+    }
+    section.collab .txtbox{
+        width: 50%;
+    }
+    section.collab .txtbox .sub{
+        font-size: 1.5rem;
+    }
+    section.collab .txtbox .sub::after{
+        height: 1px;
+    }
+    section.collab .txtbox .head{
+        color: #fddbe1;
+        font-size: 5rem;
+        margin-top: -40px;
+    }
+    section.collab .txtbox .para{
+        padding: 0 25px;
+        margin-top: 15px;
+        font-size: 1.5rem;
+    }
+    section.collab .imgbox{
+        height: 300px;
+        width: 300px;
+        margin-bottom:0px;
+    }
+    section.collab .imgbox img{
+        position: absolute;
+        bottom: 0;
+        left: 50%;
+        transform: translateX(-50%);
+        height: 130%;
+        width: 120%;
+    }
+    section.collab .container{
+        padding-top: 70px;
+    }
+    section.views{
+        padding: 50px 50px;
+        padding-top: 100px;
+    }
+    section.views .rowbox{
+        
+        flex-direction: row;
+        justify-content: space-evenly;
+    }
+    section.views .txtbox{
+        width: 50%;
+    }
+    section.views .txtbox .sub{
+        font-size: 1.5rem;
+    }
+    section.views .txtbox .sub::after{
+        height: 1px;
+    }
+    section.views .txtbox .head{
+        color: #fddbe1;
+        font-size: 5rem;
+        margin-top: -40px;
+    }
+    section.views .txtbox .para{
+        padding: 0 25px;
+        margin-top: 15px;
+        font-size: 1.5rem;
+    }
+    section.views .imgbox{
+        height: 300px;
+        width: 300px;
+        margin-bottom:0px;
+    }
+    section.views .imgbox img{
+        position: absolute;
+        bottom: 0;
+        left: 50%;
+        transform: translateX(-50%);
+        height: 130%;
+        width: 120%;
+    }
+    section.views .container .box1{
+        flex-direction: row;
+    }
+    section.views .container .box1 .reviewbox .txtbox{
+        width: 450px;
+    }
+    section.views .container .box1 .reviewbox .controlbox{
+        display: flex;
+    }
+    section.views .container .box1 .reviewbox{
+        margin-top: 0px;
+    }
+    section.contact{
+        padding: 50px 50px;
+        padding-top: 100px;
+    }
+    section.contact .rowbox{
+        
+        flex-direction: row;
+        justify-content: space-evenly;
+    }
+    section.contact .txtbox{
+        width: 50%;
+    }
+    section.contact .txtbox .sub{
+        font-size: 1.5rem;
+    }
+    section.contact .txtbox .sub::after{
+        height: 1px;
+    }
+    section.contact .txtbox .head{
+        color: #fddbe1;
+        font-size: 5rem;
+        margin-top: -40px;
+    }
+    section.contact .txtbox .para{
+        padding: 0 25px;
+        margin-top: 15px;
+        font-size: 1.5rem;
+    }
+    section.contact .imgbox{
+        height: 300px;
+        width: 300px;
+        margin-bottom:0px;
+    }
+    section.contact .imgbox img{
+        position: absolute;
+        bottom: 0;
+        left: 50%;
+        transform: translateX(-50%);
+        height: 130%;
+        width: 120%;
+    }
+    section.contact .contactbox{
+        flex-direction: row;
+    }
+}
+    </style>
+    <div class="mainpage sec" id="main">
+        <div class="hambox" id="ham" onclick="op()">
+            <i class="fas fa-bars"></i>
+        </div>
+        <div class="sidenav" id="sidenv"> 
+            <div class="closebtn" onclick="cl()">
+                <i class="far fa-times-circle"></i>
+            </div>
+            <div class="navbox" id="nb">
+                <a href="#home" onclick="cl()"><p>HOME</p></a>
+                <a href="#intro" onclick="cl()"><p>ABOUT US</p></a>
+                <a href="#events" onclick="cl()"><p>EVENTS</p></a>
+                <a href="#skills" onclick="cl()"><p>SKILLS</p></a>
+                <a href="#achiv" onclick="cl()"><p>SUCCESS</p></a>
+                <a href="#team" onclick="cl()"><p>TEAM</p></a>
+                <a href="#perks" onclick="cl()"><p>PERKS</p></a>
+                <a href="#view" onclick="cl()"><p>REVIEWS</p></a>
+                <a href="#sponsors" onclick="cl()"><p>SPONSORS</p></a>
+                <a href="#contact" onclick="cl()"><p>CONTACT US</p></a>
+            </div>
+        </div>
+        <div class="header">
+                <div class="header_left flex-row">
+                    <div class="logo flex-row">
+                        <a href="https://hackoverflow.in/" title="hackoverflow" rel="home">
+                            <img src="https://www.dropbox.com/s/7x3z3y2rw8w2bc5/group_10.png?dl=1" alt="">
+                        </a>
+                        <a href="https://hackoverflow.in/initiatives/ladebug-club/" title="ladebug" rel="home">
+                            <img src="https://www.dropbox.com/s/72gum85sqisdhg5/ladebug_cmyk__1_-removebg-preview.png?dl=1" alt="">
+                        </a>
+                    </div>
+                </div>
+                <div class="header_right">
+                    <div class="tab">
+                        <a href="#home"><p>HOME</p></a>
+                        <a href="#intro"><p>ABOUT US</p></a>
+                        <a href="#events"><p>EVENTS</p></a>
+                        <a href="#skills"><p>SKILLS</p></a>
+                        <a href="#achiv"><p>SUCCESS</p></a>
+                        <a href="#team"><p>TEAM</p></a>
+                        <a href="#perks"><p>PERKS</p></a>
+                        <a href="#view"><p>REVIEWS</p></a>
+                        <a href="#sponsors"><p>SPONSORS</p></a>
+                        <a href="#contact"><p>CONTACT US</p></a>
+                    </div>
+                </div>
+        </div>
+        <section class="landing flex-column" id="home">
+            <div class="txtbox">
+                <div class="sub">WELCOME TO OUR WORLD</div>
+                <div class="head">The LaDebug Club</div>
+                <div class="title">Debugging the Gender Gap</div>
+            </div>
+        </section>
+        <section class="intro" id="intro">
+            <div class="txtbox flex-column">
+                <div class="sub">ABOUT US</div>
+                <div class="head">Who Are We?</div>
+                <div class="para">LaDebug  is  a  female-driven  club  initiated  by  Hackoverflow  Society.  With  over  300+  female 
+                    students  from  over  60+  colleges  across  the  country,  the  club  was  started  with  a  motto  of 
+                    'Debugging the gender gap'
+                </div>
+            </div>
+            <div class="imgbox">
+                <div class="imgback"></div>
+                <img src="https://www.dropbox.com/s/5gvihw35va0b9kv/1643740143236-min.png?dl=1" alt="">
+           </div>
+        </section>
+        <section class="slider">
+            <div class="container">
+                <div class="top">
+                    <div class="nav hover" id="nav1">Our Story</div>
+                    <div class="nav" id="nav3">Our Vision</div>
+                    <div class="nav" id="nav2">Work Ethics</div>
+                </div>
+                <div class="txtarea" id="txtarea">
+                    A gap has always been observed among the genders in a professional domain, be it technical or non-technical.  Karan  Bhargav,  an  alumnus  and  the  founder  of  Hackoverflow  Society  who witnessed this gap at our university decided to start an all-female club for the holistic growth of the female students from the ground level. The club started exclusively with the female students of Chandigarh University, but now we have over 300+ members from 60+ colleges across India.
+                </div>
+            </div>
+        </section>
+        <section class="proj" id="events">
+            <div class="rowbox">
+                <div class="txtbox flex-column">
+                    <div class="sub">WORKS</div>
+                    <div class="head">Our Events</div>
+                    <div class="para">LaDebug  is  a  female-driven  club  initiated  by  Hackoverflow  Society.  With  over  300+  female 
+                        students  from  over  60+  colleges  across  the  country,  the  club  was  started  with  a  motto  of 
+                        'Debugging the gender gap'
+                    </div>
+                </div>
+
+                <div class="imgbox">
+                    <div class="imgback"></div>
+                    <img src="https://www.dropbox.com/s/77y02xzg15jl9fl/1643810462230-min.png?dl=1" alt="">
+                </div>
+            </div>
+            <div class="container">
+                    <div class="box">
+                        <div class="eimgbox">
+                            <img src="https://hackoverflow.in/wp-content/uploads/2021/09/195327927_552904619412271_2715442621377497436_n.jpg" alt="">
+                        </div>
+                        <div class="sub">Fun Meet</div>
+                        <div class="txt">Interactive MeetUp</div>
+                        <div class="btn">VIEW</div>
+                    </div>
+                    <div class="box">
+                        <div class="eimgbox">
+                            <img src="https://hackoverflow.in/wp-content/uploads/2021/09/198381416_948620862646308_6636387510946744140_n.jpg" alt="">
+                        </div>
+                        <div class="sub">Virtual Panel</div>
+                        <div class="txt">Women's Space</div>
+                        <div class="btn">VIEW</div>
+                    </div>
+                    <div class="box">
+                        <div class="eimgbox">
+                            <img src="https://hackoverflow.in/wp-content/uploads/2021/09/209636246_1127324831124462_7641838297184411602_n.jpg" alt="">
+                        </div>
+                        <div class="sub">Competition</div>
+                        <div class="txt">Design Inc.</div>
+                        <div class="btn">VIEW</div>
+                    </div>
+                    <div class="box">
+                        <div class="eimgbox">
+                            <img src="https://hackoverflow.in/wp-content/uploads/2021/09/212729909_4054255598025410_943035621463229954_n.jpg" alt="">
+                        </div>
+                        <div class="sub">Webinar</div>
+                        <div class="txt">Expert Talk</div>
+                        <div class="btn">VIEW</div>
+                    </div>
+                    <div class="box">
+                        <div class="eimgbox">
+                            <img src="https://hackoverflow.in/wp-content/uploads/2021/07/213857738_329707428701391_9108157348416366235_n.jpg" alt="">
+                        </div>
+                        <div class="sub">Competition</div>
+                        <div class="txt">Pen It Down</div>
+                        <div class="btn">VIEW</div>
+                    </div>
+                    <div class="box">
+                        <div class="eimgbox">
+                            <img src="https://hackoverflow.in/wp-content/uploads/2021/09/217910406_1253179985100877_2396178586352643600_n.jpg" alt="">
+                        </div>
+                        <div class="sub">Workshop</div>
+                        <div class="txt">Web Uplift</div>
+                        <div class="btn">VIEW</div>
+                    </div>
+                    <div class="box">
+                        <div class="eimgbox">
+                            <img src="https://hackoverflow.in/wp-content/uploads/2021/09/220558496_832921974028427_5708690235583966814_n.jpg" alt="">
+                        </div>
+                        <div class="sub">Competition</div>
+                        <div class="txt">Marketing Maverick</div>
+                        <div class="btn">VIEW</div>
+                    </div>
+                    <div class="box">
+                        <div class="eimgbox">
+                            <img src="https://hackoverflow.in/wp-content/uploads/2021/09/223442508_147878177456025_661472144358330590_n.jpg" alt=""> 
+                        </div>
+                        <div class="sub">Competition</div>
+                        <div class="txt">In Pursuit of Dispute</div>
+                        <div class="btn">VIEW</div>
+                    </div>
+                    <div class="box">
+                        <div class="eimgbox">
+                            <img src="https://hackoverflow.in/wp-content/uploads/2021/09/HTS-Koffee-With-karan_01-3.jpg" alt="">
+                        </div>
+                        <div class="sub">Panelist Meet</div>
+                        <div class="txt">Koffee with Seniors</div>
+                        <div class="btn">VIEW</div>
+                    </div>
+                    <div class="box">
+                        <div class="eimgbox">
+                            <img src="https://hackoverflow.in/wp-content/uploads/2022/01/Screenshot-2022-01-30-145342.png" alt="">
+                        </div>
+                        <div class="sub">Competition</div>
+                        <div class="txt">Code Bait</div>
+                        <div class="btn">VIEW</div>
+                    </div>
+            </div>
+        </section>
+        <section class="skill" id="skills">
+            <div class="imgbox">
+                <div class="imgback"></div>
+                <img src="https://www.dropbox.com/s/edsxyf2p75s7pdz/1643827265212-min.png?dl=1" alt="">
+           </div>
+            <div class="txtbox flex-column">
+                <div class="sub">SKIILS</div>
+                <div class="head">Our Team's Skills</div>
+                <div class="para">We believe in coming up with equal opportunities for everyone by providing the members with an all-female platform to evolve their skills and shine, leading them to greater heights in their careers. In diversity, there is beauty and strength.</div>
+                <div class="barcontainer">
+                    <div class="txtbx">
+                        <div class="txt">
+                            <p>DESIGN</p>
+                            <p>95%</p>
+                        </div>
+                        <div class="meter orange nostripes">
+	                        <span style="width: 95%"></span>
+                        </div>
+                    </div>
+                    <div class="txtbx">
+                        <div class="txt">
+                            <p>EVENT MANAGEMENT</p>
+                            <p>93%</p>
+                        </div>
+                        <div class="meter orange nostripes">
+	                        <span style="width: 93%"></span>
+                        </div>
+                    </div>
+                    <div class="txtbx">
+                        <div class="txt">
+                            <p>CODING</p>
+                            <p>87%</p>
+                        </div>
+                        <div class="meter orange nostripes">
+	                        <span style="width: 87%"></span>
+                        </div>
+                    </div>
+                    <div class="txtbx">
+                        <div class="txt">
+                            <p>ANCHORING</p>
+                            <p>97</p>
+                        </div>
+                        <div class="meter orange nostripes">
+	                        <span style="width: 97%"></span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <section class="achiv" id="achiv">
+            <div class="rowbox">
+                <div class="txtbox flex-column">
+                    <div class="sub">STATS</div>
+                    <div class="head">Our Success</div>
+                    <div class="para">LaDebug  is  a  female-driven  club  initiated  by  Hackoverflow  Society.  With  over  300+  female 
+                        students  from  over  60+  colleges  across  the  country,  the  club  was  started  with  a  motto  of 
+                        'Debugging the gender gap'
+                    </div>
+                </div>
+                <div class="imgbox">
+                    <div class="imgback"></div>
+                    <img src="https://www.dropbox.com/s/029j0inapqp570i/1643901991639-min.png?dl=1" alt="">
+                </div>
+            </div> 
+            <div class="achivbox">
+                <div class="abox">
+                    <i class="fas fa-users"></i>
+                    <div class="sub">350+</div>
+                    <div class="txt">Club Members</div>
+                </div>
+                <div class="abox">
+                    <i class="fas fa-sitemap"></i>
+                    <div class="sub">7</div>
+                    <div class="txt">Core Members</div>
+                </div>
+                <div class="abox">
+                    <i class="fas fa-school"></i>
+                    <div class="sub">60+</div>
+                    <div class="txt">Colleges</div>
+                </div>
+                <div class="abox">
+                    <i class="fas fa-clock"></i>
+                    <div class="sub">100+</div>
+                    <div class="txt">Days Of Operation</div>
+                </div>
+            </div>
+        </section>
+        <section class="team" id="team">
+            <div class="rowbox">
+                <div class="txtbox flex-column">
+                    <div class="sub">MEMBERS</div>
+                    <div class="head">Our Team</div>
+                    <div class="para">We started off with 7 female core team members handling different domains. Over 6 
+                        months, we have built a community of 300+ members, consisting of female students from 
+                        varied colleges. And now, we are planning to expand it furthermore as we are on campus
+                    </div>
+                </div>
+
+                <div class="imgbox">
+                    <div class="imgback"></div>
+                    <img src="https://www.dropbox.com/s/9fpsyf7l5biw6zx/1643908943035-min.png?dl=1" alt="">
+                </div>
+            </div>
+            <div class="container">
+                    <div class="box">
+                        <div class="eimgbox">
+                            <img src="https://hackoverflow.in/wp-content/uploads/2022/01/photo1638416961-Saanjh-Sengupta-e1642695465710.jpeg" alt="">
+                            <p>"An extrovert who is passionate about discovering beauty in commotion."</p>
+                        </div>
+                        <div class="sub">Overall Coordinator</div>
+                        <div class="txt">Saanjh Sengupta</div>
+                        <div class="social">
+                            <a  class="btn" href="mailto:saanjh.clubladebug@gmail.com" target="_blank">
+                                <i class="fas fa-envelope"></i>
+                            </a>
+                            <a  class="btn" href="http://linkedin.com/in/saanjh-sengupta-82ab3120a" target="_blank">
+                                <i class="fab fa-linkedin"></i>
+                            </a>
+                            <a  class="btn" href="https://instagram.com/_saanjhhhh?utm_medium=copy_link" target="_blank">
+                                <i class="fab fa-instagram-square"></i>
+                            </a>
+                        </div>
+                    </div>
+                    <div class="box">
+                        <div class="eimgbox">
+                            <img src="https://hackoverflow.in/wp-content/uploads/2022/01/IMG_5256-Ishika-Dixit.jpg" alt="">
+                            <p>"Carefree and a cheery human"</p>
+                        </div>
+                        <div class="sub">Design Lead</div>
+                        <div class="txt">Ishika Dixit</div>
+                        <div class="social">
+                            <a  class="btn" href="mailto:ishikadixit17@gmail.com" target="_blank">
+                                <i class="fas fa-envelope"></i>
+                            </a>
+                            <a  class="btn" href="http://www.linkedin.com/in/ishika-dixit" target="_blank">
+                                <i class="fab fa-linkedin"></i>
+                            </a>
+                            <a  class="btn" href="https://www.instagram.com/_.ishika.dixit._/" target="_blank">
+                                <i class="fab fa-instagram-square"></i>
+                            </a>
+                        </div>
+                    </div>
+                    <div class="box">
+                        <div class="eimgbox">
+                            <img src="https://hackoverflow.in/wp-content/uploads/2022/01/WhatsApp-Image-2022-01-20-at-4.28.47-PM-e1642693844959.jpeg" alt="">
+                            <p>"Aspiring data analyst and digital marketing enthusiast"</p>
+                        </div>
+                        <div class="sub">Marketing Lead</div>
+                        <div class="txt">Krishma</div>
+                        <div class="social">
+                            <a  class="btn" href="mailto:krishma.clubladebug@gmail.com" target="_blank">
+                                <i class="fas fa-envelope"></i>
+                            </a>
+                            <a  class="btn" href="https://www.linkedin.com/in/krishma-7777/" target="_blank">
+                                <i class="fab fa-linkedin"></i>
+                            </a>
+                            <a  class="btn" href="https://www.instagram.com/__krishma.__/" target="_blank">
+                                <i class="fab fa-instagram-square"></i>
+                            </a>
+                        </div>
+                    </div>
+                    <div class="box">
+                        <div class="eimgbox">
+                            <img src="https://hackoverflow.in/wp-content/uploads/2022/01/IMG-20190922-WA0065_2-Palak-Dawar.jpg" alt="">
+                            <p>"Happy soul and a lazy cat who tries to be a perfectionist."</p>
+                        </div>
+                        <div class="sub">Content Lead</div>
+                        <div class="txt">Palak Dawar</div>
+                        <div class="social">
+                            <a  class="btn" href="mailto:palakdawar3023@gmail.com" target="_blank">
+                                <i class="fas fa-envelope"></i>
+                            </a>
+                            <a  class="btn" href="https://www.linkedin.com/in/palak-d-3023/" target="_blank">
+                                <i class="fab fa-linkedin"></i>
+                            </a>
+                            <a  class="btn" href="https://www.instagram.com/artistic_3023/" target="_blank">
+                                <i class="fab fa-instagram-square"></i>
+                            </a>
+                        </div>
+                    </div>
+                    <div class="box">
+                        <div class="eimgbox">
+                            <img src="https://hackoverflow.in/wp-content/uploads/2022/01/IMG-20220116-WA0066-aayushi-aayu-1.jpg" alt="">
+                            <p>"I'm Ayushi, the 2nd year Btech Biotech student. I love singing, travelling, reading novels, sports and athletics and of course food and a sound sleep too."</p>
+                        </div>
+                        <div class="sub">Content Coordinator</div>
+                        <div class="txt">Ayushi Kumari</div>
+                        <div class="social">
+                            <a  class="btn" href="mailto:aayushiaayu7504@gmail.com" target="_blank">
+                                <i class="fas fa-envelope"></i>
+                            </a>
+                            <a  class="btn" href="https://www.linkedin.com/in/ayushi-kumari-671563200" target="_blank">
+                                <i class="fab fa-linkedin"></i>
+                            </a>
+                            <a  class="btn" href="https://www.instagram.com/mystical_dimples1092/" target="_blank">
+                                <i class="fab fa-instagram-square"></i>
+                            </a>
+                        </div>
+                    </div>
+                    <div class="box">
+                        <div class="eimgbox">
+                            <img src="https://hackoverflow.in/wp-content/uploads/2022/01/blah.blah-Deeksha-Sharma-e1643115009642-1.jpeg" alt="">
+                            <p>"Hey I am Deeksha a lazy bookworm and an all time learner. Only get energetic when get a chance to dance, or when I start learning something new I really become super active."</p>
+                        </div>
+                        <div class="sub">Branding Coordinator</div>
+                        <div class="txt">Deeksha Sharma</div>
+                        <div class="social">
+                            <a  class="btn" href="mailto:sharmadeeksha9548@gmail.com" target="_blank">
+                                <i class="fas fa-envelope"></i>
+                            </a>
+                            <a  class="btn" href="https://www.linkedin.com/in/deeksha-sharma-414a931bb" target="_blank">
+                                <i class="fab fa-linkedin"></i>
+                            </a>
+                            <a  class="btn" href="https://instagram.com/_deekshay_25?utm_medium=copy_link" target="_blank">
+                                <i class="fab fa-instagram-square"></i>
+                            </a>
+                        </div>
+                    </div>
+                    <div class="box">
+                        <div class="eimgbox">
+                            <img src="https://hackoverflow.in/wp-content/uploads/2022/01/20220105_234616-Jasmine.jpg" alt="">
+                            <p>"An INFP-T who believes that empathy and kindness are the key elements of one's personality. Always eager to learn. A diligent artist who's trying her hands at graphic designing."</p>
+                        </div>
+                        <div class="sub">Design Coordinator</div>
+                        <div class="txt">Jasmine</div>
+                        <div class="social">
+                            <a  class="btn" href="mailto: jasmine.clubladebug@gmail.com" target="_blank">
+                                <i class="fas fa-envelope"></i>
+                            </a>
+                            <a  class="btn" href="https://www.linkedin.com/in/jasmine-3839731bb" target="_blank">
+                                <i class="fab fa-linkedin"></i>
+                            </a>
+                            <a  class="btn" href="https://www.instagram.com/jasminejazz07/" target="_blank">
+                                <i class="fab fa-instagram-square"></i>
+                            </a>
+                        </div>
+                    </div>
+            </div>
+        </section>
+        <section class="perks" id="perks">
+            <div class="rowbox">
+                <div class="txtbox flex-column">
+                    <div class="sub">PERKS</div>
+                    <div class="head">Why Join Us?</div>
+                    <div class="para">LaDebug  Club  provides  opportunities  for  student  engagement  that  create  contexts  for  their 
+                        learning and build a strong sense of community among its members.
+                    </div>
+                </div>
+                <div class="imgbox">
+                    <div class="imgback"></div>
+                    <img src="https://www.dropbox.com/s/6z0rhvf6sw4ulft/1643981642446-min.png?dl=1" alt="">
+                </div>
+            </div> 
+            <div class="achivbox">
+                <div class="abox">
+                    <i class="fas fa-chalkboard-teacher"></i>
+                    <div class="sub">Training</div>
+                    <div class="txt">Get hands-on training.</div>
+                </div>
+                <div class="abox">
+                    <i class="fas fa-sitemap"></i>
+                    <div class="sub">Connect</div>
+                    <div class="txt">Get a platform to connect with other members.</div>
+                </div>
+                <div class="abox">
+                    <i class="fas fa-calendar-alt"></i>
+                    <div class="sub">Events</div>
+                    <div class="txt">Get acess to exclusive events.</div>
+                </div>
+                <div class="abox">
+                    <i class="fas fa-hands-helping"></i>
+                    <div class="sub">Mentors</div>
+                    <div class="txt">Get acess to peer mentoring.</div>
+                </div>
+            </div>
+        </section>
+        <section class="views" id="view">
+            <div class="rowbox">
+                <div class="txtbox flex-column">
+                    <div class="sub">REVIEWS</div>
+                    <div class="head">Testimonial</div>
+                    <div class="para">A simple 'thank you' does not even begin to describe the overwhelming gratitude we have for our sponsors. Our mission to provide thought-provoking and affordable programming would not be possible without the backing of our community.
+                    </div>
+                </div>
+                <div class="imgbox">
+                    <div class="imgback"></div>
+                    <img src="https://www.dropbox.com/s/ggpxw45aeu8q2e5/1644083519176-min.png?dl=1" alt="">
+                </div>
+            </div>
+            <div class="container flex-column">
+                <div class="box1">
+                    <div class="cbox">
+                        <div class="eimgbox">
+                            <img src="https://hackoverflow.in/wp-content/uploads/2022/01/photo1638416961-Saanjh-Sengupta-e1642695465710.jpeg" alt="">
+                        </div>
+                        <div class="sub">Overall Coordinator</div>
+                        <div class="txt">Saanjh Sengupta</div>
+                        <div class="social">
+                            <a  class="btn" href="mailto:saanjh.clubladebug@gmail.com" target="_blank">
+                                <i class="fas fa-envelope"></i>
+                            </a>
+                            <a  class="btn" href="http://linkedin.com/in/saanjh-sengupta-82ab3120a" target="_blank">
+                                <i class="fab fa-linkedin"></i>
+                            </a>
+                            <a  class="btn" href="https://instagram.com/_saanjhhhh?utm_medium=copy_link" target="_blank">
+                                <i class="fab fa-instagram-square"></i>
+                            </a>
+                        </div>
+                    </div>
+                    <div class="reviewbox flex-column">
+                        <div class="controlbox">
+                            <div class="quote">
+                                <i class="fas fa-quote-right"></i>
+                            </div>
+                            <div class="control flex-row">
+                                <i class="fas fa-arrow-left"></i>
+                                <i class="fas fa-arrow-right"></i>
+                            </div>
+                        </div>
+                        <div class="txtbox">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam risus est, egestas in massa sed, auctor egestas nibh. Donec pulvinar, nisi eu ullamcorper molestie, neque leo semper enim, a molestie leo sapien ut ligula. Fusce et vestibulum justo. Maecenas pretium, metus vel luctus eleifend, lorem tellus luctus dolor, quis commodo libero libero nec mi. Ut luctus massa a congue eleifend. Nulla libero magna, tempus id velit in, tempus mattis orci. Ut sit amet pellentesque arcu. Nullam sit amet consequat orci, a tincidunt lectus. Maecenas non felis et diam varius sagittis vitae sed elit. </div>
+                    </div>
+                </div>
+                <div class="box2 flex-row">
+                    <i class="fas fa-circle" style="background-color: #FD4766;"></i>
+                    <i class="fas fa-circle"></i>
+                    <i class="fas fa-circle"></i>
+                    <i class="fas fa-circle"></i>
+                    <i class="fas fa-circle"></i>
+                </div>
+            </div>
+        </section>
+        <section class="collab" id="sponsors">
+            <div class="rowbox">
+                <div class="txtbox flex-column">
+                    <div class="sub">COLLABORATIONS</div>
+                    <div class="head">Our Sponsors</div>
+                    <div class="para">A simple 'thank you' does not even begin to describe the overwhelming gratitude we have for our sponsors. Our mission to provide thought-provoking and affordable programming would not be possible without the backing of our community.
+                    </div>
+                </div>
+                <div class="imgbox">
+                    <div class="imgback"></div>
+                    <img src="https://www.dropbox.com/s/ot35jzgrnjt7965/1643993533335-min.png?dl=1" alt="">
+                </div>
+            </div>
+            <div class="container">
+                    <div class="box">
+                        <div class="eimgbox">
+                            <img src="https://res.cloudinary.com/crunchbase-production/image/upload/c_lpad,h_256,w_256,f_auto,q_auto:eco,dpr_1/v1500550935/qigpiu6kicm4phqbi2il.png" alt="">
+                        </div>
+                    </div>
+                    <div class="box">
+                        <div class="eimgbox">
+                            <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRnAHWoFPcwwhmLKM_-k5kWwhy1Mep_U2CvRliUqaSi8F_1MOApwtg2cvy45JHnEqqb2OU&usqp=CAU" alt="">
+                        </div>
+                    </div>
+                    <div class="box">
+                        <div class="eimgbox">
+                            <img src="https://freshershunt.in/wp-content/uploads/2022/01/GeeksforGeeks-1200x900.jpeg" alt="">
+                        </div>
+                    </div>
+                    <div class="box">
+                        <div class="eimgbox">
+                            <img src="https://d2908q01vomqb2.cloudfront.net/cb4e5208b4cd87268b208e49452ed6e89a68e0b8/2021/07/16/HackerEarthFeatureImage.png" alt="">
+                        </div>
+                    </div>
+                    <div class="box">
+                        <div class="eimgbox">
+                            <img src="https://media.glassdoor.com/sqll/333581/aspiring-minds-squarelogo-1404316074276.png" alt="">
+                        </div>
+                    </div>
+                    <div class="box">
+                        <div class="eimgbox">
+                            <img src="https://www.medianews4u.com/wp-content/uploads/2016/08/VLCC-Logo-2.jpg" alt="">
+                        </div>
+                    </div>
+                    <div class="box">
+                        <div class="eimgbox">
+                            <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTWVqMqo0KXC4_6krLd5zEbsmosa-ctKJ8_J3jpM-Odqkqy5R8Jk-AtKgMAvVLw8NSnufY&usqp=CAU" alt="">
+                        </div>
+                    </div>
+                    <div class="box">
+                        <div class="eimgbox">
+                            <img src="https://i.pinimg.com/originals/73/99/42/739942f6e07f93d67f9dd1a030573e04.jpg" alt=""> 
+                        </div>
+                    </div>
+                    <div class="box">
+                        <div class="eimgbox">
+                            <img src="https://www.static-contents.youth4work.com/university/Documents/Colleges/collegeLogo/20200622040632.png?v=20200622040632" alt="">
+                        </div>
+                    </div>
+            </div>
+        </section>
+        <section class="contact" id="contact">
+            <div class="rowbox">
+                <div class="txtbox flex-column">
+                    <div class="sub">KEEP IN TOUCH</div>
+                    <div class="head">Contact Us</div>
+                    <div class="para">Still have questions? Well don't worry. If you have any questions, work inqueries or really anything don't hesitate to contact us.
+                    </div>
+                </div>
+                <div class="imgbox">
+                    <div class="imgback"></div>
+                    <img src="https://www.dropbox.com/s/3ef5rj64c47xjdj/1644084074186-min.png?dl=1" alt="">
+                </div>
+            </div>
+            <div class="contactbox">
+                <div class="detailbox">
+                    <div class="txtbox">
+                        <b>Pay a Visit</b>
+                        <p>
+                            <i class="fas fa-map-marker-alt"></i>
+                            Chandigarh University, Gharuan, Mohali, Punjab, India
+                        </p>
+                    </div>
+                    <div class="txtbox">
+                        <b>Reach Out to Us</b>
+                        <p>
+                            <i class="far fa-envelope"></i>
+                            pr@hackoverflow-cu.com
+                        </p>
+                    </div>
+                    <div class="txtbox">
+                        <b>Speak to Us</b>
+                        <p>
+                            <i class="fas fa-headset"></i>
+                            +91-8054161368
+                        </p>
+                    </div>
+                    <div class="txtbox">
+                        <b>Connect with Us</b>
+                        <p class="social">
+                            <a href="https://www.instagram.com/hackoverflowsociety/">
+                                <i class="fab fa-instagram"></i>
+                            </a>
+                            <a href="https://www.facebook.com/HACKOVERFLOW3">
+                                <i class="fab fa-facebook-f"></i>
+                            </a>
+                            <a href="https://www.linkedin.com/company/hackoverflow/">
+                                <i class="fab fa-linkedin-in"></i>
+                            </a>
+                            <a href="https://www.youtube.com/channel/UCgS5Dpai6htHIif9T9WLa4g">
+                                <i class="fab fa-youtube"></i>
+                            </a>
+                        </p>
+                    </div>
+                </div>
+                <div class="mapbox">
+                    <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d882498.487992392!2d76.2246555242841!3d30.229669316083157!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x390ffb140bd63e07%3A0x68591e334d17a988!2sChandigarh%20University!5e0!3m2!1sen!2sin!4v1644160911650!5m2!1sen!2sin" width="100%" height="350" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
+                </div>
+            </div>
+        </section>
+    </div>
+    <div class="main" id="loader">
+        <div class="lbox">
+            <div class="box">
+                <div class="b b1 b11"></div>
+            </div>
+            <div class="box box2">
+                <div class="b b1 b12"></div>
+            </div>
+            <div class="box box3">
+                <div class="b b1 b13"></div>
+            </div>
+            <div class="box box4">
+                <div class="b b1 b14"></div>
+            </div>
+            <div class="box box5">
+                <div class="b b1 b15"></div>
+            </div>
+            <div class="box box6">
+                <div class="b b1 b16"></div>
+            </div>
+            <div class="box box7">
+                <div class="b b1 b17"></div>
+            </div>
+            <div class="box box8">
+                <div class="b b1 b18"></div>
+            </div>
+            <div class="box box9">
+                <div class="b b1 b19"></div>
+            </div>
+            <div class="box box10">
+                <div class="b b1 b120"></div>
+            </div>
+        </div>
+        <button class="skip" onclick="sk()">SKIP</button>
+    </div>
+    <script>
+        var nav1 = document.getElementById("nav1");
+        var nav2 = document.getElementById("nav2");
+        var nav3 = document.getElementById("nav3");
+        var txtarea = document.getElementById("txtarea")
+        var nb = document.getElementById("nb");
+        var sidenv = document.getElementById("sidenv");
+        var mainpage = document.getElementById("main");
+        var loader = document.getElementById("loader");
+        window.onload = function(){
+            setTimeout(() => {
+                main.classList.remove("sec");
+                loader.classList.add("sec");
+            }, 500);
+        }
+        function sk(){
+            setTimeout(() => {
+                main.classList.remove("sec");
+                loader.classList.add("sec");
+            }, 300);
+        }
+        window.onscroll = function(){bg()};
+        function bg(){
+            if(document.body.scrollTop>550 || document.documentElement.scrollTop>550){                    
+            document.getElementById('ham').style.display = "block";
+            } else{
+            document.getElementById('ham').style.display = "none";                
+            }   
+        }
+        function op(){
+            sidenv.style.transform="rotate(0deg) translateX(0%)";
+            setTimeout(() =>{
+                nb.style.transform="translateX(0%)";
+            }, 300)
+        }
+        function cl(){
+            sidenv.style.transform="rotate(-60deg) translateX(150%)";
+            nb.style.transform="translateX(150%)";
+        }
+        nav1.onclick = () => {
+            nav1.classList.add("hover");
+            nav2.classList.remove("hover");
+            nav3.classList.remove("hover");
+            txtarea.innerHTML = "A gap has always been observed among the genders in a professional domain, be it technical or non-technical.  Karan  Bhargav,  an  alumnus  and  the  founder  of  Hackoverflow  Society  who witnessed this gap at our university decided to start an all-female club for the holistic growth of the female students from the ground level. The club started exclusively with the female students of Chandigarh University, but now we have over 300+ members from 60+ colleges across India";
+        }
+        nav2.onclick = () => {
+            nav2.classList.add("hover");
+            nav1.classList.remove("hover");
+            nav3.classList.remove("hover");
+            txtarea.innerHTML = "LaDebug  Club  provides  opportunities  for  student  engagement  that  create  contexts  for  their learning and build a strong sense of community among its members. One of the most powerful to  accomplish  this  is  through  university-  recognized  student  clubs  and  organizations.  Upon satisfying the procedures for recognizing clubs and organizations, these student groups become eligible for a wide range of benefits through the University. The extension of these benefits is, in part,  conditioned  upon  the  student  organizations  agreement to conduct its activities  in accordance with applicable laws and regulations, including the clubs  and  organizations  manual, this  Code  of  Ethics.  The  purpose  of  this  Code  is  to  communicate  standards  by  which  student clubs  and  organizations  can  achieve  their  fullest  potential  to  align  with  the  mission  of  the University,  serve  their  members,  and  function in  harmony  with  both  on  and  off-campus communities.";
+        }
+        nav3.onclick = () => {
+            nav3.classList.add("hover");
+            nav2.classList.remove("hover");
+            nav1.classList.remove("hover");
+            txtarea.innerHTML= "The LaDebug Club has the motto of —  “Debugging the gender gap in both tech and non-tech fields”. We believe in coming up with equal opportunities for everyone by providing the members with an all-female platform to evolve their skills and shine, leading them to greater heights in their careers. In diversity, there is beauty and strength.";
+            txtarea.innerHTML = "We started off with 7 female core team members handling different domains. Over 6 months, we have built a community of 300+ members, consisting of female students from varied colleges. And now, we are planning to expand it furthermore as we are on campus. ";
+        }
+    </script>
+</body>
+</html>
